@@ -1,0 +1,7 @@
+system:
+  username: 'build-user'
+  homedir:
+    linux: '/home/build-user'
+    osx: '/Users/build-user'
+    win: '/c/builds/tc-workdir'
+aptEc2Mirrors: 'echo "deb http://archive.ubuntu.com/ubuntu/ trusty-updates main" > /etc/apt/sources.list.d/trusty-updates.list && apt-get -qq update && apt-get -qq -y upgrade'

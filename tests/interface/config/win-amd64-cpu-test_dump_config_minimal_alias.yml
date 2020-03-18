@@ -1,0 +1,7 @@
+build:
+  template_file: test-win-amd64-cpu-base.tyml
+  args:
+    tests_cmdline: "/bin/bash -c true"
+  metadata:
+    name: "Marian-dev Win AMD64 CPU test"
+    description: "Dummy test of marian-dev for Win/AMD64, CPU only"

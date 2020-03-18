@@ -1,0 +1,6 @@
+taskcluster:
+  schedulerId: taskcluster-github
+  docker:
+    provisionerId: proj-bergamot
+    workerType: ci-linux
+    workerTypeWin: ci-windows
