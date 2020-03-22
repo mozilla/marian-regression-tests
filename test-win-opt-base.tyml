@@ -1,0 +1,70 @@
+$if: '(event.event != "push") && (event.event != "tag")'
+then:
+  taskId: ${taskcluster.taskId}
+  provisionerId: ${taskcluster.docker.provisionerId}
+  workerType: ${taskcluster.docker.workerTypeWin}
+  taskGroupId: ${taskcluster.taskGroupId}
+  schedulerId: ${taskcluster.schedulerId}
+  dependencies:
+    $map: { $eval: build.dependencies }
+    each(b):
+      $eval: as_slugid(b)
+  created: { $fromNow: '0 sec' }
+  deadline: { $fromNow: '1 day' }
+  expires: { $fromNow: '7 days' }
+
+  extra:
+    github:
+      { $eval: taskcluster.github_events.pull_request }
+
+  payload:
+    maxRunTime: { $eval: to_int(build.maxRunTime) }
+
+    env:
+      TC_MSYS_VERSION: 'MSYS_NT-6.3'
+      MSYS: 'winsymlinks:nativestrict'
+
+    command:
+      - >-
+        "C:\Program Files\7-zip\7z.exe" x -txz -so msys2-base-x86_64.tar.xz |
+        "C:\Program Files\7-zip\7z.exe" x -o%USERPROFILE% -ttar -aoa -si
+      - .\msys64\usr\bin\bash.exe --login -cx "exit"
+      - .\msys64\usr\bin\bash.exe --login -cx "pacman --noconfirm -Syu"
+      - $let:
+          extraSystemSetup: { $eval: strip(str(build.system_setup)) }
+        in: >
+          .\msys64\usr\bin\bash.exe --login -cxe "export LC_ALL=C &&
+          export PATH=\"/c/builds/tc-workdir/msys64/usr/bin:/c/Python36:/c/Program Files/Git/bin:/c/Program Files/7-Zip/:$PATH\" &&
+          export TASKCLUSTER_ARTIFACTS=\"$USERPROFILE/public\" &&
+          export TASKCLUSTER_TASK_DIR=\"/c/builds/tc-workdir/\" &&
+          export TASKCLUSTER_TMP_DIR="$TASKCLUSTER_TASK_DIR/tmp" &&
+          export PIP_DEFAULT_TIMEOUT=60 &&
+          (mkdir $TASKCLUSTER_TASK_DIR || rm -fr $TASKCLUSTER_TASK_DIR/*) && cd $TASKCLUSTER_TASK_DIR &&
+          env &&
+          ln -s $USERPROFILE/msys64 $TASKCLUSTER_TASK_DIR/msys64 &&
+          git clone --recurse-submodules --quiet ${event.head.repo.url} $TASKCLUSTER_TASK_DIR/marian-dev/md/ &&
+          cd $TASKCLUSTER_TASK_DIR/marian-dev/md && git checkout --quiet ${event.head.sha} &&
+          cd $TASKCLUSTER_TASK_DIR &&
+          (mkdir pyenv-root/ && 7z x -so $USERPROFILE/pyenv.tar.gz | 7z x -opyenv-root/ -aoa -ttar -si ) &&
+          pacman --noconfirm -R bsdtar &&
+          pacman --noconfirm -S tar vim &&
+          ${extraSystemSetup} &&
+          /bin/bash ${build.args.tests_cmdline} ;
+          export TASKCLUSTER_TASK_EXIT_CODE=$? &&
+          cd $TASKCLUSTER_TASK_DIR/../ && rm -fr tc-workdir/ && exit $TASKCLUSTER_TASK_EXIT_CODE"
+
+    mounts:
+      - file: msys2-base-x86_64.tar.xz
+        content:
+          sha256: 4e799b5c3efcf9efcb84923656b7bcff16f75a666911abd6620ea8e5e1e9870c
+          url: >-
+            https://sourceforge.net/projects/msys2/files/Base/x86_64/msys2-base-x86_64-20180531.tar.xz/download
+      - file: pyenv.tar.gz
+        content:
+          url: ${system.pyenv.win.url}
+
+  metadata:
+    name: ${build.metadata.name}
+    description: ${build.metadata.description}
+    owner: ${event.head.user.email}
+    source: ${event.head.repo.url}
