@@ -26,7 +26,7 @@ then:
       - "--login"
       - "-cxe"
       - $let:
-          extraSystemSetup: { $eval: strip(str(build.system_setup)) }
+          extraSystemSetup: { $eval: strip(str(system.system_setup.linux)) }
         in: >
           apt-get -qq update &&
           ${extraSystemSetup} &&
