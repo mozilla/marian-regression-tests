@@ -1,5 +1,5 @@
 build:
-  template_file: test-win-amd64-cpu-base.tyml
+  template_file: test-win-opt-base.tyml
   args:
     tests_cmdline: "/bin/bash -c true"
   metadata:
