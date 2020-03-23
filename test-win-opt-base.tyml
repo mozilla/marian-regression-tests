@@ -48,6 +48,7 @@ then:
           pacman --noconfirm -R bsdtar &&
           pacman --noconfirm -S tar vim &&
           ${extraSystemSetup} &&
+          /bin/bash $TASKCLUSTER_TASK_DIR/marian-dev/md/${system.scripts.build.win} &&
           /bin/bash ${build.args.tests_cmdline} ;
           export TASKCLUSTER_TASK_EXIT_CODE=$? &&
           cd $TASKCLUSTER_TASK_DIR/../ && rm -fr tc-workdir/ && exit $TASKCLUSTER_TASK_EXIT_CODE"

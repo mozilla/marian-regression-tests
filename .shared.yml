@@ -2,7 +2,6 @@ system:
   username: 'build-user'
   homedir:
     linux: '/home/build-user'
-    osx: '/Users/build-user'
     win: '/c/builds/tc-workdir'
   system_setup:
     linux:
@@ -21,7 +20,16 @@ system:
         apt-get -qq -y install g++ git libev++-dev libssl-dev libboost-all-dev libtool &&
         apt-get -qq -y install libgoogle-perftools-dev libpcre3-dev libprotobuf-dev &&
         apt-get -qq -y install protobuf-compiler python3-pip unzip wget
-    osx:
-      ''
     win:
       ''
+  scripts:
+    build:
+      linux:
+        'regression-tests/linux-opt-build.sh'
+      win:
+        'regression-tests/win-opt-build.sh'
+    package:
+      linux:
+        ''
+      win:
+        ''
