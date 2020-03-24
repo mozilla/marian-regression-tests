@@ -2,6 +2,8 @@
 
 export BUILD_ARCH=x86-64
 
+cd ${$HOME}
+
 mkdir build
 
 cd build
