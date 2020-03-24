@@ -7,6 +7,7 @@ system:
     linux:
       >
         apt-get -qq update &&
+        apt-get -qq -y install git &&
         apt-get -qq -y install cmake3 &&
         apt-get -qq -y install build-essential &&
         apt-get -qq -y install libboost-all-dev &&
