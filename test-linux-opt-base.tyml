@@ -34,6 +34,7 @@ then:
           cd ${system.homedir.linux} &&
           echo -e "#!/bin/bash\nset -xe\n env && id && mkdir ~/marian-dev/ && git clone --recurse-submodules --quiet ${event.head.repo.url} ~/marian-dev/md/ && cd ~/marian-dev/md && git checkout --quiet ${event.head.sha}" > /tmp/clone.sh && chmod +x /tmp/clone.sh &&
           sudo -H -u ${system.username} /bin/bash /tmp/clone.sh &&
+          cd ${system.homedir.linux}/marian-dev/md &&
           sudo -H -u ${system.username} --preserve-env /bin/bash ${system.homedir.linux}/marian-dev/md/${system.scripts.build.linux} &&
           sudo -H -u ${system.username} --preserve-env /bin/bash ${build.args.tests_cmdline}
 

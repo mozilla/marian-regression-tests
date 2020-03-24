@@ -2,16 +2,14 @@
 
 export BUILD_ARCH=x86-64
 
-cd ${$HOME}
-
 mkdir build
 
 cd build
 
-cmake -DBUILD_ARCH=${BUILD_ARCH} \
+cmake .. \
+      -DBUILD_ARCH=${BUILD_ARCH} \
       -DCMAKE_BUILD_TYPE=Release \
       -DUSE_STATIC_LIBS=on \
-      -DUSE_SENTENCEPIECE=on \
-      ..
+      -DUSE_SENTENCEPIECE=on
 
 make -j
