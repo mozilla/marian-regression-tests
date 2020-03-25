@@ -13,4 +13,4 @@ cmake .. \
       -DUSE_STATIC_LIBS=on \
       -DUSE_SENTENCEPIECE=on
 
-make -j
+make -j1
