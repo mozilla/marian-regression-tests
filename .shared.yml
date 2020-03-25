@@ -6,6 +6,8 @@ system:
   system_setup:
     linux:
       >
+        apt-get -qq update &&
+        apt-get -qq -y install software-properties-common &&
         add-apt-repository -y ppa:ubuntu-toolchain-r/test &&
         apt-get -qq update &&
         apt-get -qq -y install git &&
