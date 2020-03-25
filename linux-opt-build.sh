@@ -7,7 +7,7 @@ mkdir build
 cd build
 
 cmake .. \
-      -DCOMPILE_CPU=on \
+      -DCOMPILE_CUDA=off \
       -DBUILD_ARCH=${BUILD_ARCH} \
       -DCMAKE_BUILD_TYPE=Release \
       -DUSE_STATIC_LIBS=on \
