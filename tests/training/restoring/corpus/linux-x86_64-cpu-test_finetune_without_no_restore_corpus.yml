@@ -3,5 +3,5 @@ build:
   args:
     tests_cmdline: "true"
   metadata:
-    name: "Marian-dev Linux x86-64 CPU test"
-    description: "Dummy test of marian-dev for Linux/x86-64, CPU only"
+    name: "linux-x86_64-cpu-test_finetune_without_no_restore_corpus"
+    description: "Test of marian-dev for Linux/x86-64, CPU only"
