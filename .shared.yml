@@ -3,6 +3,7 @@ system:
   homedir:
     linux: '/home/build-user'
     win: '/c/builds/tc-workdir'
+  submodule: 'regression-tests'
   system_setup:
     linux:
       >

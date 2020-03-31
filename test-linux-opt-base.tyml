@@ -21,6 +21,11 @@ then:
     maxRunTime: { $eval: to_int(build.maxRunTime) }
     image: ${build.docker_image}
 
+    env:
+      NUM_DEVICES: 0
+      CUDA_VISIBLE_DEVICES: ''
+      MARIAN: '${system.homedir.linux}/marian-dev/md/build'
+
     command:
       - "/bin/bash"
       - "--login"
@@ -36,6 +41,7 @@ then:
           sudo -H -u ${system.username} /bin/bash /tmp/clone.sh &&
           cd ${system.homedir.linux}/marian-dev/md &&
           sudo -H -u ${system.username} --preserve-env /bin/bash ${system.homedir.linux}/marian-dev/md/${system.scripts.build.linux} &&
+          cd ${system.homedir.linux}/marian-dev/md/${system.submodule} &&
           sudo -H -u ${system.username} --preserve-env /bin/bash ${build.args.tests_cmdline}
 
     artifacts:
