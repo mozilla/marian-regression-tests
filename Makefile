@@ -1,8 +1,8 @@
 THREADS=16
 
-GIT_MOSES_SCRIPTS=http://github.com/marian-nmt/moses-scripts.git
-GIT_SUBWORD_NMT=http://github.com/rsennrich/subword-nmt.git
-GIT_SACREBLEU=http://github.com/marian-nmt/sacreBLEU.git
+GIT_MOSES_SCRIPTS=http://github.com/mozilla/moses-scripts.git
+GIT_SUBWORD_NMT=http://github.com/mozilla/subword-nmt.git
+GIT_SACREBLEU=http://github.com/mozilla/sacreBLEU.git
 
 .PHONY: install pip tools models data run
 .SECONDARY:
