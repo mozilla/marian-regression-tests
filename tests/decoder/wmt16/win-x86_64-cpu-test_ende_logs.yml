@@ -1,7 +1,7 @@
 build:
   template_file: test-win-opt-base.tyml
   args:
-    tests_cmdline: "true"
+    tests_cmdline: "./true.sh"
   metadata:
-    name: "Marian-dev Win x86-64 CPU test"
-    description: "Dummy test of marian-dev for Win/x86-64, CPU only"
+    name: "win-x86_64-cpu-test_ende_logs"
+    description: "Test of marian-dev for Win/x86-64, CPU only"

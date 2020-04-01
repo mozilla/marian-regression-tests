@@ -1,7 +1,7 @@
 build:
   template_file: test-linux-opt-base.tyml
   args:
-    tests_cmdline: "true"
+    tests_cmdline: "./run_mrt.sh tests/decoder/wmt16/test_ende_logs.sh"
   metadata:
-    name: "Marian-dev Linux x86-64 CPU test"
-    description: "Dummy test of marian-dev for Linux/x86-64, CPU only"
+    name: "linux-x86_64-cpu-test_ende_logs"
+    description: "Test of marian-dev for Linux/x86-64, CPU only"
