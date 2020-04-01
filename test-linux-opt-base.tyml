@@ -42,6 +42,7 @@ then:
           cd ${system.homedir.linux}/marian-dev/md &&
           sudo -H -u ${system.username} --preserve-env /bin/bash ${system.homedir.linux}/marian-dev/md/${system.scripts.build.linux} &&
           cd ${system.homedir.linux}/marian-dev/md/${system.submodule} &&
+          make install &&
           sudo -H -u ${system.username} --preserve-env /bin/bash ${build.args.tests_cmdline}
 
     artifacts:
