@@ -21,6 +21,7 @@ system:
         apt-get -qq -y install openssl &&
         apt-get -qq -y install libssl-dev &&
         apt-get -qq -y install libgoogle-perftools-dev &&
+        apt-get -qq -y install realpath &&
         apt-get -qq -y install gcc-5 &&
         apt-get -qq -y install g++-5 &&
         update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 60 --slave /usr/bin/g++ g++ /usr/bin/g++-5 &&
