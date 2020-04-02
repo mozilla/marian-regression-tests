@@ -252,7 +252,9 @@ for test_name in "${tests_failed[@]}"; do
 done
 [[ -z "$tests_failed" ]] || echo "Logs:"
 for test_name in "${tests_failed[@]}"; do
-    echo "  - $(realpath $test_name | sed 's/\.sh/.sh.log/')"
+    echo "---------------------"
+    echo "  - $test_name" | tee -a $prev_log
+    echo "  - $(realpath $test_name | sed 's/\.sh/.sh.log/' | xargs cat)"
 done
 
 
