@@ -8,7 +8,7 @@ build:
   ref_match: "invalid-refs-should-not-work"
   dependencies: []
   routes: []
-  maxRunTime: 3600
+  maxRunTime: 10800
   docker_image: "ubuntu:14.04"
   system_setup:
     >
