@@ -11,6 +11,7 @@ cmake .. \
       -DBUILD_ARCH=${BUILD_ARCH} \
       -DCMAKE_BUILD_TYPE=Release \
       -DUSE_STATIC_LIBS=on \
-      -DUSE_SENTENCEPIECE=on
+      -DUSE_SENTENCEPIECE=on \
+      -DCOMPILE_SERVER=on
 
 make -j1
