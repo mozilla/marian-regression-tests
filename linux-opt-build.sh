@@ -15,4 +15,4 @@ cmake .. \
       -DCOMPILE_SERVER=on \
       -DCOMPILE_EXAMPLES=on
 
-make -j1
+make -j2
