@@ -13,6 +13,6 @@ cmake .. \
       -DUSE_STATIC_LIBS=on \
       -DUSE_SENTENCEPIECE=on \
       -DCOMPILE_SERVER=on \
-      -COMPILE_EXAMPLES=on
+      -DCOMPILE_EXAMPLES=on
 
 make -j1
