@@ -1,0 +1,6 @@
+task: transformer-base
+learn-rate: 0.5
+dim-emb: 16
+after-batches: 2
+mini-batch: 8
+workspace: 2500
