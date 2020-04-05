@@ -5,3 +5,4 @@ build:
   metadata:
     name: "linux-x86_64-cpu-test_restoring_validation"
     description: "Test of marian-dev for Linux/x86-64, CPU only"
+  maxRunTime: 21600
