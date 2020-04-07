@@ -8,32 +8,34 @@ system:
     linux:
       >
         apt-get -qq update &&
-        apt-get -qq -y install software-properties-common &&
-        add-apt-repository -y ppa:ubuntu-toolchain-r/test &&
-        apt-get -qq update &&
-        apt-get -qq -y install git &&
-        apt-get -qq -y install cmake3 &&
-        apt-get -qq -y install build-essential &&
-        apt-get -qq -y install libboost-all-dev &&
-        apt-get -qq -y install libprotobuf8 &&
-        apt-get -qq -y install protobuf-compiler &&
-        apt-get -qq -y install libprotobuf-dev &&
+        apt-get -qq -y install wget &&
         apt-get -qq -y install openssl &&
         apt-get -qq -y install libssl-dev &&
+        apt-get -qq -y install autoconf &&
+        apt-get -qq -y install automake &&
+        wget https://github.com/Kitware/CMake/releases/download/v3.12.2/cmake-3.12.2-Linux-x86_64.sh &&
+        chmod +x cmake-3.12.2-Linux-x86_64.sh &&
+        ./cmake-3.12.2-Linux-x86_64.sh --skip-license --prefix=/usr/local &&
+        apt-get -qq -y install g++ &&
+        apt-get -qq -y install git &&
+        apt-get -qq -y install libev++-dev &&
+        apt-get -qq -y install libboost-all-dev &&
+        apt-get -qq -y install libtool &&
         apt-get -qq -y install libgoogle-perftools-dev &&
-        apt-get -qq -y install realpath &&
-        apt-get -qq -y install gcc-5 &&
-        apt-get -qq -y install g++-5 &&
-        update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 60 --slave /usr/bin/g++ g++ /usr/bin/g++-5 &&
+        apt-get -qq -y install libpcre3-dev &&
+        apt-get -qq -y install libprotobuf-dev &&
+        apt-get -qq -y install libprotobuf9v5 &&
+        apt-get -qq -y install protobuf-compiler &&
         apt-get -qq -y install python3-pip &&
-        apt-get -qq -y install wget &&
-        apt-get -qq -y install doxygen &&
+        apt-get -qq -y install unzip &&
         apt-get -qq -y install apt-transport-https &&
+        apt-get -qq -y install build-essential &&
+        apt-get -qq -y install zlib1g-dev &&
         wget https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB &&
         apt-key add GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB &&
         echo "deb https://apt.repos.intel.com/mkl all main" >/etc/apt/sources.list.d/intel-mkl.list &&
         apt-get -qq update &&
-        apt-get -qq -y install intel-mkl-64bit-2017.4-061
+        apt-get -qq -y install intel-mkl-64bit-2018.2-046
     win:
       ''
   scripts:
