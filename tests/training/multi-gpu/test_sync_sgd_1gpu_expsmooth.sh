@@ -19,7 +19,7 @@ test -e sync_sgd_1gpu_expsmooth/model.npz
 test -e sync_sgd_1gpu_expsmooth.log
 
 cat sync_sgd_1gpu_expsmooth.log | $MRT_TOOLS/extract-costs.sh > sync_sgd_1gpu_expsmooth.out
-$MRT_TOOLS/diff-nums.py sync_sgd_1gpu_expsmooth.out sync_sgd_1gpu_expsmooth.expected -o sync_sgd_1gpu_expsmooth.diff
+$MRT_TOOLS/diff-nums.py sync_sgd_1gpu_expsmooth.out sync_sgd_1gpu_expsmooth.expected -p 0.4 -o sync_sgd_1gpu_expsmooth.diff
 
 # Exit with success code
 exit 0

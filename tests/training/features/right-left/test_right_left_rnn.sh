@@ -26,7 +26,7 @@ grep -qi "right-left: true" rnn.log
 
 # Compare costs with expected costs
 cat rnn.log | $MRT_TOOLS/extract-costs.sh > rnn.out
-$MRT_TOOLS/diff-nums.py rnn.out rnn.expected -o rnn.diff
+$MRT_TOOLS/diff-nums.py rnn.out rnn.expected -p 0.3 -o rnn.diff
 
 # Exit with success code
 exit 0

@@ -23,7 +23,7 @@ test -e word_twos.log
 
 # Compare costs with the expected values
 cat word_twos.log | $MRT_TOOLS/strip-timestamps.sh | grep "Ep\. " | sed -r 's/ Time.*//' > word_twos.out
-$MRT_TOOLS/diff-nums.py word_twos.out word_twos.expected -p 0.1 -o word_twos.diff
+$MRT_TOOLS/diff-nums.py word_twos.out word_twos.expected -p 0.2 -o word_twos.diff
 
 
 # Test with data-weighting via config file
@@ -43,7 +43,7 @@ $MRT_MARIAN/marian \
 
 # Compare costs with the same expected values as previously
 cat word_twos_cfg.log | $MRT_TOOLS/strip-timestamps.sh | grep "Ep\. " | sed -r 's/ Time.*//' > word_twos_cfg.out
-$MRT_TOOLS/diff-nums.py word_twos_cfg.out word_twos.expected -p 0.1 -o word_twos_cfg.diff
+$MRT_TOOLS/diff-nums.py word_twos_cfg.out word_twos.expected -p 0.2 -o word_twos_cfg.diff
 
 
 # Exit with success code

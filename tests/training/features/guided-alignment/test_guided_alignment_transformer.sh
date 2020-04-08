@@ -27,7 +27,7 @@ grep -qi "word alignments from file" transformer.log
 
 # Compare the current output with the expected output
 cat transformer.log | $MRT_TOOLS/extract-costs.sh > transformer.out
-$MRT_TOOLS/diff-nums.py transformer.out transformer.expected -o transformer.diff
+$MRT_TOOLS/diff-nums.py transformer.out transformer.expected -p 4.8 -o transformer.diff
 
 # Exit with success code
 exit 0

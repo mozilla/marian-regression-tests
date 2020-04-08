@@ -25,7 +25,7 @@ test -e lm/model.npz.yml
 test -e lm.log
 
 cat lm.log | grep 'Ep\. 1 :' | $MRT_TOOLS/extract-costs.sh > lm.out
-$MRT_TOOLS/diff-nums.py lm.out lm.expected -p 0.02 -o lm.diff
+$MRT_TOOLS/diff-nums.py lm.out lm.expected -p 0.6 -o lm.diff
 
 # Scoring with LM
 test -s temp.bpe.en || tail $MRT_DATA/europarl.de-en/corpus.bpe.en > test.bpe.en

@@ -26,7 +26,7 @@ grep -qi "right-left: true" transformer.log
 
 # Compare costs with expected costs
 cat transformer.log | $MRT_TOOLS/extract-costs.sh > transformer.out
-$MRT_TOOLS/diff-nums.py transformer.out transformer.expected -o transformer.diff
+$MRT_TOOLS/diff-nums.py transformer.out transformer.expected -p 2.7 -o transformer.diff
 
 # Exit with success code
 exit 0

@@ -19,7 +19,7 @@ test -e sync_sgd_1gpu/model.npz
 test -e sync_sgd_1gpu.log
 
 cat sync_sgd_1gpu.log | $MRT_TOOLS/extract-costs.sh > sync_sgd_1gpu.out
-$MRT_TOOLS/diff-nums.py sync_sgd_1gpu.out sync_sgd_1gpu.expected -o sync_sgd_1gpu.diff
+$MRT_TOOLS/diff-nums.py sync_sgd_1gpu.out sync_sgd_1gpu.expected -p 0.4 -o sync_sgd_1gpu.diff
 
 # Exit with success code
 exit 0
