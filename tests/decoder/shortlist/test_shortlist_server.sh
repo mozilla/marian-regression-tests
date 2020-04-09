@@ -13,7 +13,10 @@ set -e
 test -f $MRT_MARIAN/marian-server || exit 100
 
 clean_up() {
-    kill $SERVER_PID
+    if ps -p $SERVER_PID > /dev/null
+    then
+         kill $SERVER_PID
+    fi
 }
 trap clean_up EXIT
 
