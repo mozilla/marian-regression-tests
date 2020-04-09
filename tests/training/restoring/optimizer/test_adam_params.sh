@@ -18,7 +18,7 @@ test -e adam/model.npz.optimizer.npz
 test -e adam.log
 
 $MRT_TOOLS/extract-costs.sh < adam.log > adam.costs.out
-$MRT_TOOLS/diff-nums.py adam.costs.out adam.costs.expected -p 0.2 -o adam.costs.diff
+$MRT_TOOLS/diff-nums.py adam.costs.out adam.costs.expected -p 3.0 -o adam.costs.diff
 
 $MRT_MARIAN/../scripts/contrib/model_info.py -m adam/model.npz.optimizer.npz > adam.keys.out
 $MRT_TOOLS/diff.sh adam.keys.out adam.keys.expected > adam.keys.diff

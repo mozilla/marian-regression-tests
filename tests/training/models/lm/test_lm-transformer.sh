@@ -25,7 +25,7 @@ test -e lm-transformer/model.npz.yml
 test -e lm-transformer.log
 
 cat lm-transformer.log | grep 'Ep\. 1 :' | $MRT_TOOLS/extract-costs.sh > lm-transformer.out
-$MRT_TOOLS/diff-nums.py lm-transformer.out lm-transformer.expected -p 0.02 -o lm-transformer.diff
+$MRT_TOOLS/diff-nums.py lm-transformer.out lm-transformer.expected -p 7.4 -o lm-transformer.diff
 
 # Scoring with LM
 test -s temp.bpe.en || tail $MRT_DATA/europarl.de-en/corpus.bpe.en > test.bpe.en
