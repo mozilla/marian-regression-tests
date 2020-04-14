@@ -45,12 +45,6 @@ then:
           make install &&
           sudo -H -u ${system.username} --preserve-env /bin/bash ${build.args.tests_cmdline}
 
-    artifacts:
-      "public":
-        type: "directory"
-        path: "/tmp/artifacts/"
-        expires: { $fromNow: '7 days' }
-
   metadata:
     name: ${build.metadata.name}
     description: ${build.metadata.description}
