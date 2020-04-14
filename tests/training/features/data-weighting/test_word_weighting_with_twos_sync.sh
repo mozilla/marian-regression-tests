@@ -23,7 +23,7 @@ test -e word_twos_sync.log
 
 # Compare costs with the expected values
 cat word_twos_sync.log | $MRT_TOOLS/strip-timestamps.sh | grep "Ep\. " | sed -r 's/ Time.*//' > word_twos_sync.out
-$MRT_TOOLS/diff-nums.py word_twos_sync.out word_twos_sync.expected -p 0.2 -o word_twos_sync.diff
+$MRT_TOOLS/diff-nums.py word_twos_sync.out word_twos_sync.expected -p 0.1 -o word_twos_sync.diff
 
 
 # Exit with success code

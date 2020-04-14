@@ -45,7 +45,7 @@ cat finetune_2.log | $MRT_TOOLS/strip-timestamps.sh | grep "Ep\. " | sed 's/ : T
 
 
 # Compare with the expected output
-$MRT_TOOLS/diff-nums.py finetune.out finetune.expected -p 0.5 -o finetune.diff
+$MRT_TOOLS/diff-nums.py finetune.out finetune.expected -p 0.1 -o finetune.diff
 
 # Exit with success code
 exit 0

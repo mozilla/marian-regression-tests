@@ -32,7 +32,7 @@ test -e trans.log
 grep -q "/tmp/marian.*" trans_script.temp
 
 $MRT_TOOLS/strip-timestamps.sh < trans.log | grep -v "Total translation time" | head -n 4 > trans.out
-$MRT_TOOLS/diff-nums.py trans.out trans.expected -p 4.7 -o trans.diff
+$MRT_TOOLS/diff-nums.py trans.out trans.expected -p 0.2 -o trans.diff
 
 # Exit with success code
 exit 0
