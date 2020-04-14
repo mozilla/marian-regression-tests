@@ -38,7 +38,8 @@ system:
         apt-get -qq update &&
         apt-get -qq -y install intel-mkl-64bit-2018.2-046
     win:
-      ''
+      >
+        true
   scripts:
     build:
       linux:
