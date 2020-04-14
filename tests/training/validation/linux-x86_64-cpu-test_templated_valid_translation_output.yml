@@ -1,7 +1,0 @@
-build:
-  template_file: test-linux-opt-base.tyml
-  args:
-    tests_cmdline: "./run_mrt.sh tests/training/validation/test_templated_valid_translation_output.sh"
-  metadata:
-    name: "linux-x86_64-cpu-test_templated_valid_translation_output"
-    description: "Test of marian-dev for Linux/x86-64, CPU only"

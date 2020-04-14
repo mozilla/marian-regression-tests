@@ -1,7 +1,0 @@
-build:
-  template_file: test-linux-opt-base.tyml
-  args:
-    tests_cmdline: "./run_mrt.sh tests/interface/model/test_scoring_with_nonexistent_model.sh"
-  metadata:
-    name: "linux-x86_64-cpu-test_scoring_with_nonexistent_model"
-    description: "Test of marian-dev for Linux/x86-64, CPU only"

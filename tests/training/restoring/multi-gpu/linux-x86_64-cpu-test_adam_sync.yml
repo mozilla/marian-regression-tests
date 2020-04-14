@@ -1,7 +1,0 @@
-build:
-  template_file: test-linux-opt-base.tyml
-  args:
-    tests_cmdline: "./run_mrt.sh tests/training/restoring/multi-gpu/test_adam_sync.sh"
-  metadata:
-    name: "linux-x86_64-cpu-test_adam_sync"
-    description: "Test of marian-dev for Linux/x86-64, CPU only"

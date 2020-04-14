@@ -1,7 +1,0 @@
-build:
-  template_file: test-linux-opt-base.tyml
-  args:
-    tests_cmdline: "./run_mrt.sh tests/scorer/scores/test_summary_perplexity.sh"
-  metadata:
-    name: "linux-x86_64-cpu-test_summary_perplexity"
-    description: "Test of marian-dev for Linux/x86-64, CPU only"
