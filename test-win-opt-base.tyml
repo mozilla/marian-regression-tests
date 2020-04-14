@@ -26,12 +26,13 @@ then:
 
     command:
       - >-
+        choco install -y 7zip --version 19.0
         "C:\Program Files\7-zip\7z.exe" x -txz -so msys2-base-x86_64.tar.xz |
         "C:\Program Files\7-zip\7z.exe" x -o%USERPROFILE% -ttar -aoa -si
       - .\msys64\usr\bin\bash.exe --login -cx "exit"
       - .\msys64\usr\bin\bash.exe --login -cx "pacman --noconfirm -Syu"
       - $let:
-          extraSystemSetup: { $eval: strip(str(build.system_setup)) }
+          extraSystemSetup: { $eval: strip(str(build.system_setup.win)) }
         in: >
           .\msys64\usr\bin\bash.exe --login -cxe "export LC_ALL=C &&
           export PATH=\"/c/builds/tc-workdir/msys64/usr/bin:/c/Python36:/c/Program Files/Git/bin:/c/Program Files/7-Zip/:$PATH\" &&
