@@ -31,7 +31,7 @@ $MRT_TOOLS/diff-nums.py lm.out lm.expected -p 0.6 -o lm.diff
 test -s temp.bpe.en || tail $MRT_DATA/europarl.de-en/corpus.bpe.en > test.bpe.en
 
 $MRT_MARIAN/marian-scorer -m lm/model.npz -t test.bpe.en -v vocab.en.yml > lm.scores.out
-$MRT_TOOLS/diff-nums.py lm.scores.out lm.scores.expected -p 15.6 -o lm.scores.diff
+$MRT_TOOLS/diff-nums.py lm.scores.out lm.scores.expected -p 0.002 -o lm.scores.diff
 
 # Exit with success code
 exit 0
