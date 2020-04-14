@@ -1,7 +1,0 @@
-build:
-  template_file: test-win-opt-base.tyml
-  args:
-    tests_cmdline: "./true.sh"
-  metadata:
-    name: "win-x86_64-cpu-test_templated_valid_translation_output"
-    description: "Test of marian-dev for Win/x86-64, CPU only"
