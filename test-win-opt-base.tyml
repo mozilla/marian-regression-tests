@@ -26,9 +26,8 @@ then:
 
     command:
       - >-
-        "C:\Program Files\choco" install -y 7zip --version 19.0
-      - "C:\Program Files\7-zip\7z.exe" x -txz -so msys2-base-x86_64.tar.xz |
-        "C:\Program Files\7-zip\7z.exe" x -o%USERPROFILE% -ttar -aoa -si
+        ".\7z.exe" x -txz -so msys2-base-x86_64.tar.xz |
+        ".\7z.exe" x -o%USERPROFILE% -ttar -aoa -si
       - .\msys64\usr\bin\bash.exe --login -cx "exit"
       - .\msys64\usr\bin\bash.exe --login -cx "pacman --noconfirm -Syu"
       - $let:
@@ -60,6 +59,10 @@ then:
           sha256: 4e799b5c3efcf9efcb84923656b7bcff16f75a666911abd6620ea8e5e1e9870c
           url: >-
             https://sourceforge.net/projects/msys2/files/Base/x86_64/msys2-base-x86_64-20180531.tar.xz/download
+      - file: 7z.exe
+        content:
+          url: >-
+            https://www.7-zip.org/a/7z1900-x64.exe
 
   metadata:
     name: ${build.metadata.name}
