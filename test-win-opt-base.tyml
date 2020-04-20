@@ -32,7 +32,7 @@ then:
       - .\msys64\usr\bin\bash.exe --login -cx "exit"
       - .\msys64\usr\bin\bash.exe --login -cx "pacman --noconfirm -Syu"
       - $let:
-          extraSystemSetup: { $eval: strip(str(build.system_setup.win)) }
+          extraSystemSetup: { $eval: strip(str(system.system_setup.win)) }
         in: >
           .\msys64\usr\bin\bash.exe --login -cxe "export LC_ALL=C &&
           export PATH=\"/c/builds/tc-workdir/msys64/usr/bin:/c/Python36:/c/Program Files/Git/bin:/c/Program Files/7-Zip/:$PATH\" &&
